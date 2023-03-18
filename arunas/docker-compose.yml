@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  php:
+    container_name: ${COMPOSE_PROJECT_NAME}_php_${PHP_VERSION}
+    build:
+      dockerfile: Dockerfile
+      context: ./php
+      args:
+        PHP_VERSION: ${PHP_VERSION}
+    volumes:
+      - ./php/php.ini:/usr/local/etc/php/conf.d/php.ini
+      - ..:${APPLICATION_PATH}
+    env_file: .env
+    working_dir: ${APPLICATION_PATH}
+    networks:
+      - localhost_network
+
+networks:
+  localhost_network:
+    driver: bridge

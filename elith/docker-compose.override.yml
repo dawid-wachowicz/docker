@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  mariadb:
+    ports:
+      - "3316:3306"
+
+  php:
+    ports:
+      - "9001:9000"
+    expose:
+      - "9000"
+
+  nginx:
+    ports:
+      - "8081:80"
+  
+  node:
+    ports:
+      - "3000:3000"
+    expose:
+      - "8080"

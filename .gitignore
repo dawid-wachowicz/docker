@@ -1,0 +1,4 @@
+*/db/mariadb/
+*/nginx/log/
+
+!.gitignore
